@@ -11,7 +11,7 @@ import (
 	"github.com/pkg/errors"
 	tb "gopkg.in/tucnak/telebot.v2"
 
-	"task-queue-001/app/media"
+	"github.com/meesooqa/yttg/app/media"
 )
 
 type Options struct {

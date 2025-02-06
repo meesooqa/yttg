@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"task-queue-001/app/media"
+	"github.com/meesooqa/yttg/app/media"
 )
 
 func TestTelegramFormatter_Format_WithWebpageUrl(t *testing.T) {

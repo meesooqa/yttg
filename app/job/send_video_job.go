@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	"task-queue-001/app/media"
-	"task-queue-001/app/send"
+	"github.com/meesooqa/yttg/app/media"
+	"github.com/meesooqa/yttg/app/send"
 )
 
 // SendVideoJob download audio and send to Telegram

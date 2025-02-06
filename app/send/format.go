@@ -6,7 +6,7 @@ import (
 	"strings"
 	"time"
 
-	"task-queue-001/app/media"
+	"github.com/meesooqa/yttg/app/media"
 )
 
 type TelegramFormatter struct{}

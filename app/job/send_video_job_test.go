@@ -7,8 +7,8 @@ import (
 	"testing"
 	"time"
 
-	"task-queue-001/app/media"
-	"task-queue-001/app/send"
+	"github.com/meesooqa/yttg/app/media"
+	"github.com/meesooqa/yttg/app/send"
 )
 
 func TestSendVideoJob_Execute_Success(t *testing.T) {

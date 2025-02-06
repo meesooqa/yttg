@@ -12,8 +12,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 
-	"task-queue-001/app/job"
-	"task-queue-001/app/web/mocks"
+	"github.com/meesooqa/yttg/app/job"
+	"github.com/meesooqa/yttg/app/web/mocks"
 )
 
 func TestSendHandlerPost(t *testing.T) {

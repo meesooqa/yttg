@@ -8,7 +8,7 @@ import (
 
 	tb "gopkg.in/tucnak/telebot.v2"
 
-	"task-queue-001/app/media"
+	"github.com/meesooqa/yttg/app/media"
 )
 
 // FakeClient — тестовая реализация Client

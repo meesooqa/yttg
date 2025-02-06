@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"time"
 
-	"task-queue-001/app/job"
+	"github.com/meesooqa/yttg/app/job"
 )
 
 type Server struct {

@@ -3,7 +3,7 @@ package mocks
 import (
 	"github.com/stretchr/testify/mock"
 
-	"task-queue-001/app/job"
+	"github.com/meesooqa/yttg/app/job"
 )
 
 type MockJobQueue struct {

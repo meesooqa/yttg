@@ -3,8 +3,8 @@ package main
 import (
 	"context"
 
-	"task-queue-001/app/job"
-	"task-queue-001/app/web"
+	"github.com/meesooqa/yttg/app/job"
+	"github.com/meesooqa/yttg/app/web"
 )
 
 func main() {
