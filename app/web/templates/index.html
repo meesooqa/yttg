@@ -7,13 +7,14 @@
 </head>
 <body class="page__body">
     <main class="main">
+        <h1 class="main__title">Task List</h1>
+
         <form class="form" action="/send" method="post">
-            <label for="url">Link:</label>
-            <input type="url" id="url" name="url" value="" required>
-            <button type="submit">Submit</button>
+            <input type="url" id="url" name="url" value="" required placeholder="URL">
+            <button type="submit">Add to Queue</button>
         </form>
+
         <table class="table">
-            <caption>Status</caption>
             <thead>
             <tr>
                 <th>ID</th>
