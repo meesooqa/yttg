@@ -31,3 +31,7 @@ docker compose build
 docker compose up -d
 ```
 2. Open [http://localhost:8080](http://localhost:8080).
+3. Down containers
+```sh
+docker compose down
+```
