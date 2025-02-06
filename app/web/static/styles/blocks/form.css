@@ -1,0 +1,27 @@
+/* Form */
+
+.form {
+    font-size: 32px;
+    width: 50%;
+    display: grid;
+    grid-gap: 16px;
+    grid-template-columns: min-content 1fr .5fr;
+    grid-template-areas:
+        "label . ."
+        "input input input"
+        ". . button";
+}
+
+.form label {
+    grid-area: label;
+}
+
+.form input {
+    font-size: 32px;
+    grid-area: input;
+}
+
+.form button {
+    font-size: 32px;
+    grid-area: button;
+}

@@ -1,0 +1,28 @@
+<html class="page" lang="en">
+<head>
+    <title>yt-dlp audio to Telegram</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles/styles.css">
+</head>
+<body class="page__body">
+    <main class="main">
+        <form class="form" action="/send" method="post">
+            <label for="url">Link:</label>
+            <input type="url" id="url" name="url" value="" required>
+            <button type="submit">Submit</button>
+        </form>
+        <table class="table">
+            <caption>Status</caption>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody id="jobsBody"></tbody>
+        </table>
+    </main>
+</body>
+<script type="module" src="/static/scripts/index.js"></script>
+</html>
