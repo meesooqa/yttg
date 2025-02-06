@@ -1,5 +1,5 @@
 # YTTG: yt-dlp audio to Telegram
-Tool to send audio from online video to Telegram Channel using [yt-dlp](https://github.com/yt-dlp/yt-dlp) with Web UI.
+Tool to send audio from online video to Telegram Channel using [yt-dlp](https://github.com/yt-dlp/yt-dlp) with Web UI. See supported sites [here](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md).
 
 ## Prerequisites
 
