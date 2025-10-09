@@ -11,6 +11,12 @@
 
         <form class="form" action="/send" method="post">
             <input type="url" id="url" name="url" value="" required placeholder="URL">
+
+            <input list="browsers" name="cookies-from-browser" placeholder="Cookies From Browser...">
+            <datalist id="browsers">
+                <option value="chrome">Chrome</option>
+            </datalist>
+
             <button type="submit">Add to Queue</button>
         </form>
 
