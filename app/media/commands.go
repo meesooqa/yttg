@@ -6,17 +6,19 @@ import (
 )
 
 const (
-	tplInfo     = "yt-dlp -f bestaudio -x --embed-thumbnail --dump-json \"{{.Link}}\""
-	tplDownload = "yt-dlp -f bestaudio -x --embed-thumbnail --audio-format={{.AudioFormat}} --no-progress -o {{.FileName}} -- \"{{.Link}}\""
+	tplInfo     = "yt-dlp {{.CookiesFromBrowser}} -f bestaudio -x --embed-thumbnail --dump-json \"{{.Link}}\""
+	tplDownload = "yt-dlp {{.CookiesFromBrowser}} -f bestaudio -x --embed-thumbnail --audio-format={{.AudioFormat}} --no-progress -o {{.FileName}} -- \"{{.Link}}\""
 )
 
 // CmdInfo returns command to save media info from link
-func CmdInfo(link string) string {
+func CmdInfo(link, cookiesFromBrowser string) string {
 	tpl := tplInfo
 	params := struct {
-		Link string
+		Link               string
+		CookiesFromBrowser string
 	}{
-		Link: link,
+		Link:               link,
+		CookiesFromBrowser: cookiesFromBrowser,
 	}
 
 	b := bytes.Buffer{}
@@ -26,16 +28,18 @@ func CmdInfo(link string) string {
 }
 
 // CmdDownload returns command to download media from link
-func CmdDownload(link, fileName, audioFormat string) string {
+func CmdDownload(link, cookiesFromBrowser, fileName, audioFormat string) string {
 	tpl := tplDownload
 	params := struct {
-		Link        string
-		FileName    string
-		AudioFormat string
+		Link               string
+		CookiesFromBrowser string
+		FileName           string
+		AudioFormat        string
 	}{
-		Link:        link,
-		FileName:    fileName,
-		AudioFormat: audioFormat,
+		Link:               link,
+		CookiesFromBrowser: cookiesFromBrowser,
+		FileName:           fileName,
+		AudioFormat:        audioFormat,
 	}
 
 	b := bytes.Buffer{}
