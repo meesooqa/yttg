@@ -17,8 +17,10 @@ func CmdInfo(link, cookiesFromBrowser string) string {
 		Link               string
 		CookiesFromBrowser string
 	}{
-		Link:               link,
-		CookiesFromBrowser: cookiesFromBrowser,
+		Link: link,
+	}
+	if cookiesFromBrowser != "" {
+		params.CookiesFromBrowser = " --cookies-from-browser " + cookiesFromBrowser
 	}
 
 	b := bytes.Buffer{}
@@ -36,10 +38,12 @@ func CmdDownload(link, cookiesFromBrowser, fileName, audioFormat string) string 
 		FileName           string
 		AudioFormat        string
 	}{
-		Link:               link,
-		CookiesFromBrowser: cookiesFromBrowser,
-		FileName:           fileName,
-		AudioFormat:        audioFormat,
+		Link:        link,
+		FileName:    fileName,
+		AudioFormat: audioFormat,
+	}
+	if cookiesFromBrowser != "" {
+		params.CookiesFromBrowser = " --cookies-from-browser " + cookiesFromBrowser
 	}
 
 	b := bytes.Buffer{}
