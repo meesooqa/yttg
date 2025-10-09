@@ -5,6 +5,9 @@ import (
 	"strings"
 )
 
+// TODO brave, chrome, chromium, edge, firefox,
+// TODO opera, safari, vivaldi, whale
+
 // BrowserForCookies is type to represent browser code
 type BrowserForCookies string
 
