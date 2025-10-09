@@ -26,12 +26,20 @@ Set vars.
 ```sh
 docker compose build
 ```
-1. Up containers
+1. Up container
 ```sh
 docker compose up -d
 ```
-2. Open [http://localhost:8080](http://localhost:8080).
-3. Down containers
+2. Build
+```sh
+make build
+```
+3. Run the app
+```sh
+./yttg
+```
+4. Open [http://localhost:8080](http://localhost:8080).
+5. Down container
 ```sh
 docker compose down
 ```
