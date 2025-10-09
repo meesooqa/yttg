@@ -44,15 +44,16 @@ func (j SendVideoJob) Execute() error {
 	fmt.Printf("Start processing URL: %s\n", j.URL)
 
 	link := j.URL
+	cookiesFromBrowser := string(j.CookiesFromBrowser)
 	ctx := context.Background()
 
 	ms := j.MediaService
-	info, err := ms.GetInfo(ctx, link)
+	info, err := ms.GetInfo(ctx, link, cookiesFromBrowser)
 	if err != nil {
 		return fmt.Errorf("failed to get info: %v", err)
 	}
 
-	filename, err := ms.Download(ctx, link, j.ID)
+	filename, err := ms.Download(ctx, link, cookiesFromBrowser, j.ID)
 	if err != nil {
 		return fmt.Errorf("failed to download: %v", err)
 	}
