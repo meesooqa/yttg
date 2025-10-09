@@ -13,6 +13,8 @@ services:
       - .env
     volumes:
       - ./var:/srv/var
+      - ./app/web/static:/srv/app/web/static
+      - ./app/web/templates:/srv/app/web/templates
     logging:
       driver: json-file
       options:
