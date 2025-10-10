@@ -1,3 +1,7 @@
+volumes:
+  server-data:
+    driver: local
+
 services:
   telegram-bot-api:
     image: ghcr.io/bots-house/docker-telegram-bot-api:latest
