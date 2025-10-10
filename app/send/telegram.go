@@ -133,7 +133,7 @@ func (client TelegramClient) sendText(channelID string, item media.Info) (*tb.Me
 }
 
 func (client TelegramClient) sendAudio(channelID string, item media.Info) (*tb.Message, error) {
-	defer os.Remove(item.Filename)
+	// TODO defer os.Remove(item.Filename)
 
 	audio := tb.Audio{
 		File:      tb.FromDisk(item.Filename),

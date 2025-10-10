@@ -32,8 +32,9 @@ func (s *Server) send(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
+		jobID := uuid.NewSHA1(uuid.NameSpaceURL, []byte(url))
 		j := job.SendVideoJob{
-			BaseJob:         job.BaseJob{ID: uuid.New().String()},
+			BaseJob:         job.BaseJob{ID: jobID.String()},
 			URL:             url,
 			MediaService:    media.NewMediaService(),
 			TelegramFactory: &send.EnvClientFactory{},
