@@ -3,6 +3,7 @@ Tool to send audio from online video to Telegram Channel using [yt-dlp](https://
 
 ## Prerequisites
 
+- Install yt-dlp. (E.g. `brew install yt-dlp`.)
 - Obtain a Telegram [Bot Token](https://core.telegram.org/bots/tutorial#obtain-your-bot-token).
 - Add Telegram Bot into Telegram Channel as admin.
 - Obtain Telegram [App](https://my.telegram.org/apps) `api_id` and `api_hash`.
