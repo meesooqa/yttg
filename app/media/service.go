@@ -11,8 +11,8 @@ import (
 )
 
 type Service interface {
-	GetInfo(ctx context.Context, link string) (*Info, error)
-	Download(ctx context.Context, link string, id string) (string, error)
+	GetInfo(ctx context.Context, link, cookiesFromBrowser string) (*Info, error)
+	Download(ctx context.Context, link, cookiesFromBrowser, id string) (string, error)
 }
 
 type MediaService struct{}
@@ -21,7 +21,7 @@ func NewMediaService() *MediaService {
 	return &MediaService{}
 }
 
-func (s *MediaService) GetInfo(ctx context.Context, link string) (*Info, error) {
+func (s *MediaService) GetInfo(ctx context.Context, link, cookiesFromBrowser string) (*Info, error) {
 	if !isValidURL(link) {
 		return nil, fmt.Errorf("URL is not valid")
 	}
@@ -32,7 +32,7 @@ func (s *MediaService) GetInfo(ctx context.Context, link string) (*Info, error) 
 	}
 	defer os.Remove(infoFile.Name())
 
-	cmdInfo := CmdInfo(link)
+	cmdInfo := CmdInfo(link, cookiesFromBrowser)
 	cmd := exec.CommandContext(ctx, "sh", "-c", cmdInfo)
 	cmd.Stdin = os.Stdin
 	cmd.Stderr = os.Stderr
@@ -55,11 +55,11 @@ func (s *MediaService) GetInfo(ctx context.Context, link string) (*Info, error) 
 	return &info, nil
 }
 
-func (s *MediaService) Download(ctx context.Context, link string, id string) (string, error) {
+func (s *MediaService) Download(ctx context.Context, link, cookiesFromBrowser, id string) (string, error) {
 	basename := "var/yttg/" + id
 	audioFormat := "mp3"
 
-	cmdDownload := CmdDownload(link, basename, audioFormat)
+	cmdDownload := CmdDownload(link, cookiesFromBrowser, basename, audioFormat)
 	cmd := exec.CommandContext(ctx, "sh", "-c", cmdDownload)
 	cmd.Stdin = os.Stdin
 	cmd.Stderr = os.Stderr

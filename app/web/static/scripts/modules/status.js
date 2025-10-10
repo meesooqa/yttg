@@ -2,11 +2,9 @@ async function fetchStatuses() {
     try {
         let response = await fetch('/status');
         if (response.ok) {
-console.log("OK");
             let data = await response.json();
             updateTable(data);
         } else {
-console.log("not OK");
         }
     } catch (err) {
         console.error('Error while getting statuses:', err);

@@ -2,8 +2,9 @@ package web
 
 import (
 	"encoding/json"
-	"github.com/google/uuid"
 	"net/http"
+
+	"github.com/google/uuid"
 
 	"github.com/meesooqa/yttg/app/job"
 	"github.com/meesooqa/yttg/app/media"
@@ -30,12 +31,24 @@ func (s *Server) send(w http.ResponseWriter, r *http.Request) {
 			http.Error(w, "URL can't be empty", http.StatusBadRequest)
 			return
 		}
-		s.JobQueue.AddJob(job.SendVideoJob{
+
+		j := job.SendVideoJob{
 			BaseJob:         job.BaseJob{ID: uuid.New().String()},
 			URL:             url,
 			MediaService:    media.NewMediaService(),
 			TelegramFactory: &send.EnvClientFactory{},
-		})
+		}
+
+		// Cookies
+		rawCookiesFromBrowser := r.FormValue("cookies-from-browser")
+		if rawCookiesFromBrowser != "" {
+			cookiesFromBrowser, err := job.ParseCookiesFromBrowser(rawCookiesFromBrowser)
+			if err == nil && cookiesFromBrowser != "" {
+				j.CookiesFromBrowser = cookiesFromBrowser
+			}
+		}
+
+		s.JobQueue.AddJob(j)
 
 		http.Redirect(w, r, "/", http.StatusSeeOther)
 	} else {

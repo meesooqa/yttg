@@ -17,4 +17,7 @@ test:
 docker:
 	docker compose down -v && docker compose up --build --force-recreate
 
-.PHONY: run lint test_race test docker
+build:
+	go build -o yttg -ldflags "-s -w" ./app
+
+.PHONY: run lint test_race test docker build
